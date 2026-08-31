@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &amp; Team — M.K Trust Bank</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,300,400,500,600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:            #F7F3E8;
+  --bg-panel:      #FFFDF7;
+  --ink:           #1B1B16;
+  --ink-soft:      #4A473D;
+  --forest:        #123526;
+  --forest-light:  #1F5C42;
+  --gold:          #B98A2E;
+  --gold-soft:     #E7D5A0;
+  --line:          rgba(18,53,38,0.16);
+  --line-light:    rgba(18,53,38,0.08);
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max: 1180px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+h1,h2,h3,h4{ font-family:var(--display); font-weight:600; margin:0; color:var(--forest); letter-spacing:-0.01em; }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+
+/* ---------- header ---------- */
+.site-header{ position:sticky; top:0; z-index:40; background:rgba(247,243,232,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:78px; }
+.brand{ display:flex; align-items:baseline; gap:10px; text-decoration:none; }
+.brand-mark{ font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--forest); }
+.brand-sub{ font-size:0.72rem; color:var(--gold); font-style:italic; font-family:var(--display); }
+nav.primary-nav{ display:flex; align-items:center; gap:34px; }
+nav.primary-nav a{ text-decoration:none; color:var(--ink-soft); font-size:0.96rem; font-weight:500; position:relative; padding:4px 0; }
+nav.primary-nav a:hover{ color:var(--forest); }
+nav.primary-nav a.active{ color:var(--forest); }
+nav.primary-nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:var(--gold); }
+.call-chip{ display:inline-flex; align-items:center; gap:8px; background:var(--forest); color:#F7F3E8 !important; padding:10px 18px; text-decoration:none; font-size:0.92rem; font-weight:600; border:1px solid var(--forest); transition:background .15s ease; }
+.call-chip:hover{ background:var(--forest-light); }
+.call-chip svg{ width:15px; height:15px; }
+.menu-toggle{ display:none; }
+
+/* ---------- hero ---------- */
+.hero{ padding:96px 0 60px; border-bottom:1px solid var(--line); }
+.hero .wrap{ grid-template-columns:1fr; display:grid; }
+.hero-eyebrow{ color:var(--gold); font-family:var(--display); font-style:italic; font-size:1.05rem; margin-bottom:18px; }
+.hero h1{ font-size:clamp(2.5rem, 4.4vw, 4rem); line-height:1.05; max-width:22ch; }
+.hero p.lede{ margin-top:24px; max-width:44ch; font-size:1.15rem; color:var(--ink-soft); }
+
+/* ---------- section shell ---------- */
+section{ padding:88px 0; }
+section.tight{ padding:64px 0; }
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:48px; border-bottom:1px solid var(--line); padding-bottom:24px; }
+.section-head h2{ font-size:clamp(1.9rem, 3vw, 2.6rem); }
+.section-head p{ max-width:40ch; color:var(--ink-soft); margin:0; }
+.section-kicker{ font-family:var(--display); font-style:italic; color:var(--gold); font-size:1rem; display:block; margin-bottom:10px; }
+.on-forest{ background:var(--forest); color:#F1ECDC; }
+.on-forest h2, .on-forest h3, .on-forest h4{ color:#F7F3E8; }
+.on-forest .section-head{ border-color:rgb(88, 88, 88); }
+.on-forest .section-head p{ color:#C9CFC3; }
+
+/* ---------- full timeline ---------- */
+.timeline{ display:flex; flex-direction:column; }
+.timeline .row{ display:grid; grid-template-columns:140px 1fr; gap:32px; padding:32px 0; border-top:1px solid var(--line); }
+.timeline .row:last-child{ border-bottom:1px solid var(--line); }
+.timeline .year{ font-family:var(--display); font-size:1.8rem; color:var(--forest); }
+.timeline h4{ font-size:1.15rem; margin-bottom:8px; }
+.timeline p{ margin:0; color:var(--ink-soft); max-width:56ch; }
+
+/* ---------- CEO spotlight ---------- */
+.ceo-spotlight{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:start; }
+.photo-frame{ position:relative; aspect-ratio:4/5; background:var(--forest); border:1px solid var(--line); overflow:hidden; }
+.photo-frame img{ width:100%; height:100%; object-fit:cover; }
+.ceo-copy .role{ color:var(--gold); font-family:var(--display); font-style:italic; font-size:1.1rem; }
+.ceo-copy h2{ margin-top:6px; font-size:2.4rem; }
+.ceo-copy .bio{ margin-top:22px; color:var(--#F7F3E8); max-width:60ch; }
+.ceo-copy .bio p{ margin:0 0 14px; }
+.ceo-signoff{ margin-top:28px; padding-top:20px; border-top:1px solid var(--line); font-family:var(--display); font-style:italic; color:var(--forest); }
+
+/* ---------- team grid ---------- */
+.team-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.team-card{ background:var(--bg-panel); padding:0 0 28px; }
+.team-card .photo-frame{ aspect-ratio:1/1; border:none; border-bottom:1px solid var(--line); }
+.team-card .card-body{ padding:22px 26px 0; }
+.team-card h4{ font-size:1.1rem; }
+.team-card .role{ color:var(--gold); font-size:0.86rem; margin-top:3px; }
+.team-card .bio{ color:var(--ink-soft); font-size:0.92rem; margin-top:12px; }
+
+/* ---------- contact ---------- */
+.contact-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:48px; }
+.contact-block .k{ font-size:0.8rem; color:var(--gold); margin-bottom:10px; display:block; }
+.contact-block .v{ font-family:var(--display); font-size:1.3rem; }
+.contact-block a.v{ text-decoration:none; }
+.contact-block a.v:hover{ color:var(--gold-soft); }
+
+/* ---------- footer ---------- */
+footer.site-footer{ border-top:1px solid var(--line); padding:44px 0; }
+footer.site-footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+footer.site-footer p{ margin:0; color:var(--ink-soft); font-size:0.88rem; }
+.footer-links{ display:flex; gap:24px; }
+.footer-links a{ text-decoration:none; color:var(--ink-soft); font-size:0.88rem; }
+.footer-links a:hover{ color:var(--forest); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px){
+  .product-grid{ grid-template-columns:1fr; }
+  .ceo-spotlight{ grid-template-columns:1fr; }
+  .team-grid{ grid-template-columns:1fr; }
+  .contact-grid{ grid-template-columns:1fr; gap:32px; }
+  .timeline .row{ grid-template-columns:1fr; gap:6px; }
+  nav.primary-nav{ position:fixed; inset:78px 0 0 0; background:var(--bg); flex-direction:column; align-items:flex-start; padding:32px; gap:22px; display:none; }
+  nav.primary-nav.open{ display:flex; }
+  .menu-toggle{ display:inline-flex; background:none; border:1px solid var(--line); padding:8px 12px; cursor:pointer; font-size:1.1rem; }
+  .call-chip span.txt{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">M.K Trust Bank</span>
+      <span class="brand-sub">est. 2010</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="about.html" class="active">About &amp; team</a>
+      <a href="about.html#history">Our history</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="call-chip" href="tel:0248817138">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="txt">024 881 7138</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav.primary-nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow">Our story</span>
+    <h1>A bank that grew up in the same neighbourhoods it serves.</h1>
+    <p class="lede">Meet the people and the milestones behind M.K Trust Bank — from a single room in Accra to a team of specialists across the country.</p>
+  </div>
+</section>
+
+<!-- ============ HISTORY — add a new .row to add another year ============ -->
+<section id="history">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Since 2010</span>
+        <h2>Our history.</h2>
+      </div>
+      <p>Sixteen years of steady, deliberate growth — one branch, one relationship at a time.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="row">
+        <div class="year">2010</div>
+        <div>
+          <h4>A single room in Accra</h4>
+          <p>M.K Trust Bank opens its first branch on East Legon with four staff and a promise to treat every depositor's cedi like our own.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="year">2014</div>
+        <div>
+          <h4>First loan book for traders</h4>
+          <p>We launch our first working-capital loans for market traders in Makola, funding over 500 small businesses in the first year alone.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="year">2016</div>
+        <div>
+          <h4>Expanding beyond Accra</h4>
+          <p>New branches open in Kumasi, Takoradi and Akropong as customer numbers cross 10,000, marking our first steps outside Greater Accra.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="year">2020</div>
+        <div>
+          <h4>Mobile banking goes live</h4>
+          <p>We launch mobile and agency banking so customers can save, send and pay bills without visiting a branch.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="year">2026</div>
+        <div>
+          <h4>8 branches and counting</h4>
+          <p>Today we serve more than 24,000 customers from 8 branches, still guided by the same founding promise.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CEO — swap the img src below for the real photo file ============ -->
+<section class="on-forest">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Leadership</span>
+        <h2>A word from our CEO.</h2>
+      </div>
+    </div>
+
+    <div class="ceo-spotlight">
+      <div class="photo-frame">
+        <img src="https://i.pinimg.com/736x/15/e0/bb/15e0bb68dca756e8c4c8bf9bc1db901d.jpg" alt="Michael Kwabena Baidoo, CEO">
+      </div>
+      <div class="ceo-copy">
+        <div class="role">Chief Executive Officer &amp; Founder</div>
+        <h2>Michael Kwabena Baidoo</h2>
+        <div class="bio">
+          <p>Michael Kwabena Baidoo founded Baidoo Trust Bank in 2010 after a decade working in retail banking across Accra, where he saw how many hardworking families and traders were underserved by larger institutions.</p>
+          <p>Under his leadership, the bank has grown from a single branch to twelve, while holding onto the same principle he started with: banking should be simple, honest, and close to home. He is a strong believer in financial literacy and personally visits branches each quarter to meet customers and staff.</p>
+          <p>Outside the bank, Michael mentors young entrepreneurs and sits on the board of two community development initiatives in Greater Accra.</p>
+        </div>
+        <div class="ceo-signoff">"Every account we open is a promise. We intend to keep it." — Michael Kwabena Baidoo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM — duplicate a .team-card block to add another person ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">The people behind the counter</span>
+        <h2>Our leadership team.</h2>
+      </div>
+      <p>A small team of specialists who know our customers by name.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="photo-frame">
+          <img src="https://i.pinimg.com/736x/0b/45/57/0b4557671d3c23af407fc94d220628fc.jpg" alt="Ama Asante">
+        </div>
+        <div class="card-body">
+          <h4>Ama Asante</h4>
+          <div class="role">Chief Operating Officer</div>
+          <p class="bio">Oversees branch operations and customer experience across all twelve locations.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="photo-frame">
+          <img src="https://i.pinimg.com/1200x/5c/e9/d5/5ce9d55d2e67a3f66e3a41ba6042d683.jpg" alt="Mr. Owusu">
+        </div>
+        <div class="card-body">
+          <h4>Mr. Owusu</h4>
+          <div class="role">Head of Lending</div>
+          <p class="bio">Leads our SME and business loan desk, with 10 years in trade finance.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="photo-frame">
+          <img src="https://i.pinimg.com/1200x/33/11/ff/3311ff50ba0718a066c3b4d59d1ae10f.jpg" alt="Tracy Colin">
+        </div>
+        <div class="card-body">
+          <h4>Tracy Colin</h4>
+          <div class="role">Head of Customer Relations</div>
+          <p class="bio">Runs our contact centre and branch training, ensuring every visit feels personal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Get in touch</span>
+        <h2>Visit or call us.</h2>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <span class="k">Call us</span>
+        <a class="v" href="tel:0248817138">024 881 7138</a>
+      </div>
+      <div class="contact-block">
+        <span class="k">Email us</span>
+        <a class="v" href="mailto:baidootrust112@gmail.com">baidootrust112@gmail.com</a>
+      </div>
+      <div class="contact-block">
+        <span class="k">Head office</span>
+        <div class="v">M.K Trust Bank House, East Legon, Accra, Ghana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 M.K Trust Bank. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html#products">Products</a>
+      <a href="index.html">Home</a>
+      <a href="tel:0248817138">024 881 7138</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

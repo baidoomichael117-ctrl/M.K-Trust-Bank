@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.K Trust Bank — Banking built on trust</title>
+<style>
+/* ==========================================================================
+   M.K Trust Bank — home page styles
+   Edit colours/fonts in :root below. Section styles are grouped and
+   commented so you can find things fast.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,ital@9..144,300,400,500,600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:            #F7F3E8;
+  --bg-panel:      #FFFDF7;
+  --ink:           #1B1B16;
+  --ink-soft:      #4A473D;
+  --forest:        #123526;
+  --forest-light:  #1F5C42;
+  --gold:          #B98A2E;
+  --gold-soft:     #E7D5A0;
+  --line:          rgba(18,53,38,0.16);
+  --line-light:    rgba(18,53,38,0.08);
+  --display: 'Fraunces', Georgia, serif;
+  --body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max: 1180px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+h1,h2,h3,h4{ font-family:var(--display); font-weight:600; margin:0; color:var(--forest); letter-spacing:-0.01em; }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+
+/* ---------- header ---------- */
+.site-header{ position:sticky; top:0; z-index:40; background:rgba(247,243,232,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:78px; }
+.brand{ display:flex; align-items:baseline; gap:10px; text-decoration:none; }
+.brand-mark{ font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--forest); }
+.brand-sub{ font-size:0.72rem; color:var(--gold); font-style:italic; font-family:var(--display); }
+nav.primary-nav{ display:flex; align-items:center; gap:34px; }
+nav.primary-nav a{ text-decoration:none; color:var(--ink-soft); font-size:0.96rem; font-weight:500; position:relative; padding:4px 0; }
+nav.primary-nav a:hover{ color:var(--forest); }
+nav.primary-nav a.active{ color:var(--forest); }
+nav.primary-nav a.active::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:var(--gold); }
+.call-chip{ display:inline-flex; align-items:center; gap:8px; background:var(--forest); color:#F7F3E8 !important; padding:10px 18px; text-decoration:none; font-size:0.92rem; font-weight:600; border:1px solid var(--forest); transition:background .15s ease; }
+.call-chip:hover{ background:var(--forest-light); }
+.call-chip svg{ width:15px; height:15px; }
+.menu-toggle{ display:none; }
+
+/* ---------- hero ---------- */
+.hero{ padding:96px 0 88px; border-bottom:1px solid var(--line); }
+.hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:end; }
+.hero-eyebrow{ color:var(--gold); font-family:var(--display); font-style:italic; font-size:1.05rem; margin-bottom:18px; }
+.hero h1{ font-size:clamp(2.5rem, 4.4vw, 4rem); line-height:1.05; max-width:14ch; }
+.hero p.lede{ margin-top:24px; max-width:44ch; font-size:1.15rem; color:var(--ink-soft); }
+.hero-ctas{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+.btn{ display:inline-flex; align-items:center; gap:8px; padding:14px 24px; text-decoration:none; font-weight:600; font-size:0.98rem; border:1px solid var(--forest); cursor:pointer; font-family:var(--body); }
+.btn-solid{ background:var(--forest); color:#F7F3E8; }
+.btn-solid:hover{ background:var(--forest-light); }
+.btn-ghost{ background:transparent; color:var(--forest); }
+.btn-ghost:hover{ background:var(--line-light); }
+.hero-stats{ border-left:1px solid var(--line); padding-left:40px; display:flex; flex-direction:column; gap:28px; }
+.stat .num{ font-family:var(--display); font-size:2.6rem; color:var(--forest); line-height:1; }
+.stat .label{ color:var(--ink-soft); font-size:0.92rem; margin-top:6px; }
+
+/* ---------- section shell ---------- */
+section{ padding:88px 0; }
+section.tight{ padding:64px 0; }
+.section-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:48px; border-bottom:1px solid var(--line); padding-bottom:24px; }
+.section-head h2{ font-size:clamp(1.9rem, 3vw, 2.6rem); }
+.section-head p{ max-width:40ch; color:var(--ink-soft); margin:0; }
+.section-kicker{ font-family:var(--display); font-style:italic; color:var(--gold); font-size:1rem; display:block; margin-bottom:10px; }
+.on-forest{ background:var(--forest); color:#F1ECDC; }
+.on-forest h2, .on-forest h3, .on-forest h4{ color:#F7F3E8; }
+.on-forest .section-head{ border-color:rgba(247,243,232,0.2); }
+.on-forest .section-head p{ color:#C9CFC3; }
+
+/* ---------- products ---------- */
+.product-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.product-card{ background:var(--bg-panel); padding:40px; }
+.product-card .tag{ display:inline-block; font-size:0.78rem; color:var(--gold); border:1px solid var(--gold-soft); padding:3px 10px; margin-bottom:20px; }
+.product-card h3{ font-size:1.4rem; margin-bottom:12px; }
+.product-card p{ color:var(--ink-soft); margin:0; max-width:36ch; }
+.product-card .rate{ margin-top:22px; padding-top:18px; border-top:1px solid var(--line-light); font-family:var(--display); color:var(--forest); font-size:1.05rem; }
+
+/* ---------- history teaser ---------- */
+.history-teaser{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center; }
+.history-teaser blockquote{ margin:0; font-family:var(--display); font-size:1.5rem; font-style:italic; line-height:1.4; color:var(--forest); border-left:2px solid var(--gold); padding-left:28px; }
+.mini-timeline{ display:flex; flex-direction:column; }
+.mini-timeline .row{ display:grid; grid-template-columns:80px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--line-light); }
+.mini-timeline .row:last-child{ border-bottom:1px solid var(--line-light); }
+.mini-timeline .year{ font-family:var(--display); color:var(--gold); font-size:1.1rem; }
+.mini-timeline p{ margin:0; color:var(--ink-soft); }
+
+/* ---------- contact ---------- */
+.contact-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:48px; }
+.contact-block .k{ font-size:0.8rem; color:var(--gold); margin-bottom:10px; display:block; }
+.contact-block .v{ font-family:var(--display); font-size:1.3rem; }
+.contact-block a.v{ text-decoration:none; }
+.contact-block a.v:hover{ color:var(--gold-soft); }
+
+/* ---------- footer ---------- */
+footer.site-footer{ border-top:1px solid var(--line); padding:44px 0; }
+footer.site-footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+footer.site-footer p{ margin:0; color:var(--ink-soft); font-size:0.88rem; }
+.footer-links{ display:flex; gap:24px; }
+.footer-links a{ text-decoration:none; color:var(--ink-soft); font-size:0.88rem; }
+.footer-links a:hover{ color:var(--forest); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px){
+  .hero .wrap{ grid-template-columns:1fr; }
+  .hero-stats{ border-left:none; padding-left:0; flex-direction:row; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:28px; }
+  .product-grid{ grid-template-columns:1fr; }
+  .history-teaser{ grid-template-columns:1fr; gap:36px; }
+  .contact-grid{ grid-template-columns:1fr; gap:32px; }
+  .mini-timeline .row{ grid-template-columns:1fr; gap:6px; }
+  nav.primary-nav{ position:fixed; inset:78px 0 0 0; background:var(--bg); flex-direction:column; align-items:flex-start; padding:32px; gap:22px; display:none; }
+  nav.primary-nav.open{ display:flex; }
+  .menu-toggle{ display:inline-flex; background:none; border:1px solid var(--line); padding:8px 12px; cursor:pointer; font-size:1.1rem; }
+  .call-chip span.txt{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">M.K Trust Bank</span>
+      <span class="brand-sub">est. 2016</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="about.html">About &amp; team</a>
+      <a href="about.html#history">Our history</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="call-chip" href="tel:0248817138">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="txt">024 881 7138</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('nav.primary-nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO — edit headline, sub-text and the three stats below ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">Accra · Ghana</span>
+      <h1>Banking built on trust, rooted at home.</h1>
+      <p class="lede">M.K Trust Bank helps individuals, families and businesses across Ghana save with confidence, borrow with clarity, and grow with a partner who picks up the phone.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-solid">See our products</a>
+        <a href="tel:0248817138" class="btn btn-ghost">Call 024 881 7138</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num">9+</div>
+        <div class="label">Years serving Ghanaian communities</div>
+      </div>
+      <div class="stat">
+        <div class="num">24,000</div>
+        <div class="label">Customers banking with us today</div>
+      </div>
+      <div class="stat">
+        <div class="num">8</div>
+        <div class="label">Branches, with more opening yearly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS — duplicate a .product-card block to add a fifth product ============ -->
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">What we offer</span>
+        <h2>Products for every stage of your money.</h2>
+      </div>
+      <p>Four core products, each one built to be understood in a single conversation — no fine print surprises.</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="product-card">
+        <span class="tag">Everyday</span>
+        <h3>Savings accounts</h3>
+        <p>A straightforward account for daily saving, with mobile top-ups and no hidden charges for keeping your money with us.</p>
+        <div class="rate">Up to 11% p.a. interest</div>
+      </div>
+      <div class="product-card">
+        <span class="tag">Growth</span>
+        <h3>Fixed deposits &amp; investment</h3>
+        <p>Lock in a rate for a term that suits you, from three months to five years, with a dedicated advisor tracking your plan.</p>
+        <div class="rate">From 18% p.a. on 12-month terms</div>
+      </div>
+      <div class="product-card">
+        <span class="tag">Business</span>
+        <h3>Business &amp; SME loans</h3>
+        <p>Working capital and expansion loans for shops, traders and growing companies, decided in days, not months.</p>
+        <div class="rate">Financing from GHS 5,000</div>
+      </div>
+      <div class="product-card">
+        <span class="tag">On the go</span>
+        <h3>Mobile &amp; agency banking</h3>
+        <p>Send, save and pay bills from your phone, or visit any of our agency banking partners nationwide.</p>
+        <div class="rate">Available on all major networks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORY TEASER — links through to the full timeline on about.html ============ -->
+<section class="on-forest tight">
+  <div class="wrap history-teaser">
+    <blockquote>“We started in a single room in Accra with one promise: treat every depositor's cedi like it was our own. That promise hasn't changed.”</blockquote>
+    <div class="mini-timeline">
+      <div class="row">
+        <div class="year">2010</div>
+        <p>Founded in Accra with a single branch and six staff.</p>
+      </div>
+      <div class="row">
+        <div class="year">2016</div>
+        <p>Reached 5,000 customers and opened our third region.</p>
+      </div>
+      <div class="row">
+        <div class="year">2026</div>
+        <p>8 branches strong, still family-run, still local.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:36px;">
+    <a href="about.html#history" class="btn btn-ghost" style="border-color:var(--gold-soft); color:#F7F3E8;">Read our full history →</a>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Get in touch</span>
+        <h2>Talk to a real person today.</h2>
+      </div>
+      <p>Our team is reachable by phone, email or in person at any branch.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <span class="k">Call us</span>
+        <a class="v" href="tel:0248817138">024 881 7138</a>
+      </div>
+      <div class="contact-block">
+        <span class="k">Email us</span>
+        <a class="v" href="mailto:baidoo112trust@gmail.com">baidoo112trust@gmail.com</a>
+      </div>
+      <div class="contact-block">
+        <span class="k">Head office</span>
+        <div class="v">M.K Trust Bank House, East Legon, Accra, Ghana</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 M.K Trust Bank. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html#products">Products</a>
+      <a href="about.html">About &amp; team</a>
+      <a href="tel:0248817138">024 881 7138</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
